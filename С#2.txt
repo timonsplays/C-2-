@@ -1,0 +1,69 @@
+class threeProgs
+{
+    static void Progs()
+{
+      Console.WriteLine("Выберите программу:");
+      Console.WriteLine("1. Угадай число");
+      Console.WriteLine("2. Таблица умножения");
+      Console.WriteLine("3. Вывод делителей числа");
+        int Choice = int.Parse(Console.ReadLine());
+
+        switch (Choice)
+    {
+            case 1:
+                Console.WriteLine("Запуск программы 'Угадай число'");
+                int secretNumber = new Random().Next(0, 101);
+                int guess;
+                int attempts = 0;
+                Console.WriteLine("Угадай число от 0 до 100:");
+                do
+            {
+                    guess = int.Parse(Console.ReadLine());
+                    attempts++;
+                    if (guess < secretNumber)
+                {
+                        Console.WriteLine("Больше");
+                }
+                    else if (guess > secretNumber)
+                {
+                        Console.WriteLine("Меньше");
+                }
+                    else
+                {
+                        Console.WriteLine($"Ура число угадано {secretNumber} за {attempts} попыток");
+                }
+            } while (guess != secretNumber);
+                break;
+                
+            case 2:
+                for (int i = 1; i <= 10; i++)
+            {
+                    for (int j = 1; j <= 9; j++)
+                {
+                        Console.Write($"{i} x {j} = {i * j}\t");
+                 }
+                    Console.WriteLine();
+            }
+                break;
+
+            case 3:
+                string input = Console.ReadLine();
+                int num = int.Parse(input);
+
+                Console.WriteLine($"Делители числа {num}:");
+
+                for (int i = 1; i <= num; i++)
+            {
+                    if (num % i == 0)
+                {
+                        Console.WriteLine(i);
+                }
+            }
+                break;
+
+            default:
+                Console.WriteLine("Некоректный ввод");
+                break;
+        }
+    }
+}
